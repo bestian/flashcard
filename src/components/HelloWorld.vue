@@ -1,5 +1,8 @@
 <template>
   <div class="hello">
+
+    <h1>請連按</h1>
+
     <div class="ui centered red card clickable" v-if="!flip" @click="flipCard()">
       <h1 class="ui header" v-if = "op == '+'">{{ n1 }} + {{ n2 }} = ?</h1>
       <h1 class="ui header" v-if = "op == '-'">{{ n1 }} - {{ n2 }} = ?</h1>
@@ -38,7 +41,7 @@
         </div>
       </div>
     </div>
-     
+
   </div>
 </template>
 
