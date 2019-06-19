@@ -10,9 +10,9 @@
     </div>
 
     <div class="ui centered orange fliped card clickable" v-else @click="flipCard()">
-      <h1 class="ui blue header" v-if = "op == '+'">{{ n1 + n2 }}</h1>
-      <h1 class="ui blue header"  v-if = "op == '-'">{{ n1 - n2 }}</h1>
-      <h1 class="ui blue header"  v-if = "op == '*'">{{ n1 * n2 }}</h1>
+      <h1 class="ui blue header" v-if = "op == '+'">{{ n1 }} + {{ n2 }} = {{ n1 + n2 }}</h1>
+      <h1 class="ui blue header"  v-if = "op == '-'">{{ n1 }} + {{ n2 }} = {{ n1 - n2 }}</h1>
+      <h1 class="ui blue header"  v-if = "op == '*'">{{ n1 }} + {{ n2 }} = {{ n1 * n2 }}</h1>
     </div>
 
 
@@ -113,18 +113,20 @@ h1 {
   height: 50vh;
   width: auto;
   justify-content: center;
+  background-color: #fcc !important;
+  cursor: pointer;
 }
 
+/*
 .card.orange {
   background-color: #fc9 !important;
 }
 
 .card.red {
   background-color: #fcc !important;
-}
+} */
 
 .card.fliped .header {
-  font-size: 10em !important;
 }
 
 </style>

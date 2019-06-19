@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="tw.bestian.flashcard" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>flashcard</name>
+    <name>自由數學閃卡</name>
     <icon src="res/Icon.png" />
     <platform name="ios">
         <icon height="1024" src="res/ios/Icon-1024.png" width="1024" />
