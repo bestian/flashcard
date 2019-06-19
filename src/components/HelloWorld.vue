@@ -4,15 +4,15 @@
     <h1>請連按</h1>
 
     <div class="ui centered red card clickable" v-if="!flip" @click="flipCard()">
-      <h1 class="ui header" v-if = "op == '+'">{{ n1 }} + {{ n2 }} = ?</h1>
-      <h1 class="ui header" v-if = "op == '-'">{{ n1 }} - {{ n2 }} = ?</h1>
-      <h1 class="ui header" v-if = "op == '*'">{{ n1 }} × {{ n2 }} = ?</h1>
+      <h1 class="ui header" v-if = "op.v == '+'">{{ n1 }} + {{ n2 }} = ?</h1>
+      <h1 class="ui header" v-if = "op.v == '-'">{{ n1 }} - {{ n2 }} = ?</h1>
+      <h1 class="ui header" v-if = "op.v == '*'">{{ n1 }} × {{ n2 }} = ?</h1>
     </div>
 
     <div class="ui centered orange fliped card clickable" v-else @click="flipCard()">
-      <h1 class="ui blue header" v-if = "op == '+'">{{ n1 }} + {{ n2 }} = {{ n1 + n2 }}</h1>
-      <h1 class="ui blue header"  v-if = "op == '-'">{{ n1 }} + {{ n2 }} = {{ n1 - n2 }}</h1>
-      <h1 class="ui blue header"  v-if = "op == '*'">{{ n1 }} + {{ n2 }} = {{ n1 * n2 }}</h1>
+      <h1 class="ui blue header" v-if = "op.v == '+'">{{ n1 }} + {{ n2 }} = {{ n1 + n2 }}</h1>
+      <h1 class="ui blue header"  v-if = "op.v == '-'">{{ n1 }} + {{ n2 }} = {{ n1 - n2 }}</h1>
+      <h1 class="ui blue header"  v-if = "op.v == '*'">{{ n1 }} + {{ n2 }} = {{ n1 * n2 }}</h1>
     </div>
 
 
@@ -35,8 +35,8 @@
         <label>選擇算法：</label>
         <div class="field" v-for="o in ops" v-bind:key="o.v">
           <div class="ui radio checkbox">
-            <input type="radio" name="year" v-bind:value="o.v" v-model = "op">
-            <label class="clickable" @click = "op = o.v">{{o.t}}</label>
+            <input type="radio" name="year" v-bind:value="o" v-model = "op">
+            <label class="clickable" @click = "op = o">{{o.t}}</label>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@ export default {
   data () {
     return {
       flip: false,
-      op: '+',
+      op: {v: '+', t: '+'},
       ops: [
         {v: '+', t: '+'},
         {v: '-', t: '-'},
