@@ -11,8 +11,8 @@
 
     <div class="ui centered orange fliped card clickable" v-else @click="flipCard()">
       <h1 class="ui blue header" v-if = "op.v == '+'">{{ n1 }} + {{ n2 }} = {{ n1 + n2 }}</h1>
-      <h1 class="ui blue header"  v-if = "op.v == '-'">{{ n1 }} + {{ n2 }} = {{ n1 - n2 }}</h1>
-      <h1 class="ui blue header"  v-if = "op.v == '*'">{{ n1 }} + {{ n2 }} = {{ n1 * n2 }}</h1>
+      <h1 class="ui blue header"  v-if = "op.v == '-'">{{ n1 }} - {{ n2 }} = {{ n1 - n2 }}</h1>
+      <h1 class="ui blue header"  v-if = "op.v == '*'">{{ n1 }} × {{ n2 }} = {{ n1 * n2 }}</h1>
     </div>
 
 
@@ -51,7 +51,7 @@ export default {
   data () {
     return {
       flip: false,
-      op: {v: '+', t: '+'},
+      op: {v: '*', t: '×'},
       ops: [
         {v: '+', t: '+'},
         {v: '-', t: '-'},
