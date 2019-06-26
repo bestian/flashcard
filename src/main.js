@@ -8,5 +8,8 @@ require('semantic-ui-css/semantic.css')
 Vue.config.productionTip = false
 
 new Vue({
+  i18n: {
+      fallbackLocale: 'zh-TW'
+  },
   render: h => h(App),
 }).$mount('#app')

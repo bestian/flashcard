@@ -1,7 +1,30 @@
+<i18n>
+{
+  "en-US": {
+    "press": "please press",
+    "min": "minimum number",
+    "max": "maximum number",
+    "choose": "please choose"
+  },
+  "zh-TW": {
+    "press": "請連按",
+    "min": "數字下限",
+    "max": "數字上限",
+    "choose": "選擇"
+  }
+}
+</i18n>
+
 <template>
   <div class="hello">
+    <div class="locale-changer">
+      <label><i class="world icon"/></label>
+      <select v-model="$i18n.locale">
+        <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">{{ lang}}</option>
+      </select>
+    </div>
 
-    <h1>請連按</h1>
+    <h1>{{ $t('press') }} </h1>
 
     <div class="ui centered red card clickable" v-if="!flip" @click="flipCard()">
       <h1 class="ui header" v-if = "op.v == '+'">{{ n1 }} + {{ n2 }} = ?</h1>
@@ -20,19 +43,19 @@
       <div class="inline fields">
         <div class="field">
           <div class="ui labeled input">
-            <div class="ui label">數字下限</div>
+            <div class="ui label">{{ $t('min') }}</div>
             <input id="r" type="number" v-model="min" step = "5">
           </div>
         </div>
         <div class="field">
           <div class="ui labeled input">
-            <div class="ui label">數字上限</div>
+            <div class="ui label">{{ $t('max') }}</div>
             <input id="r" type="number" v-model="range" step = "5" autofocus="">
           </div>
         </div>
       </div>
       <div class="inline fields">
-        <label>選擇算法：</label>
+        <label>{{ $t('choose') }}：</label>
         <div class="field" v-for="o in ops" v-bind:key="o.v">
           <div class="ui radio checkbox">
             <input type="radio" name="year" v-bind:value="o" v-model = "op">
@@ -46,6 +69,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'HelloWorld',
   data () {
@@ -60,7 +84,14 @@ export default {
       n1: 0,
       n2: 0,
       min: 0,
-      range: 10
+      range: 10,
+      locale: 'zh-TW',
+      langs: ['zh-TW', 'en-US'] 
+    }
+  },
+  watch: {
+    locale (val) {
+      this.$i18n.locale = val
     }
   },
   methods: {
@@ -127,6 +158,15 @@ h1 {
 } */
 
 .card.fliped .header {
+}
+
+.locale-changer {
+  background-color: #f0f !important;
+}
+
+select {
+  display: inline-block !important;
+  width: 200px !important;
 }
 
 </style>
